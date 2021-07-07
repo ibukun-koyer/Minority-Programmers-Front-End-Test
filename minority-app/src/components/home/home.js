@@ -21,6 +21,8 @@ class pagesOnHome {
 }
 
 function Home() {
+  //selected mode
+  const [mode, setMode] = useState("");
   //current page
   const [currentSection, setCurrentSection] = useState(0);
   //references to all pages
@@ -63,6 +65,18 @@ function Home() {
     }
   }, [height]);
   useLayoutEffect(() => {
+    if (window.localStorage) {
+      let currMode = localStorage.getItem("mode");
+      if (currMode) {
+        setMode(currMode);
+      } else {
+        let newMode = "light";
+        localStorage.setItem("mode", newMode);
+        setMode(newMode);
+      }
+    }
+  }, []);
+  useLayoutEffect(() => {
     //start up configurations
     resize();
   }, []);
@@ -85,7 +99,11 @@ function Home() {
             key={section.id}
             className={homeClasses.panel}
           >
-            <section.component homeClass={homeClasses} />
+            <section.component
+              homeClass={homeClasses}
+              mode={mode}
+              setMode={setMode}
+            />
           </WrapHomeSection>
         );
       })}
