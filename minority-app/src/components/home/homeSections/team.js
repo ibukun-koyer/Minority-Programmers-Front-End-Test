@@ -1,23 +1,92 @@
+import { useRef } from "react";
+import $ from "jquery";
+class team {
+  constructor(teamName, description, gradientClass) {
+    this.teamName = teamName;
+    this.description = description;
+    this.gradientClass = gradientClass;
+  }
+}
 function Team({ homeClass, mode }) {
+  const teamsRef = useRef();
+
+  function onClick(dir) {
+    const scrollLeft = $(teamsRef.current).scrollLeft();
+    const width = $(teamsRef.current).width();
+
+    let newScrollLeft;
+    if (dir === "forward") newScrollLeft = scrollLeft + width;
+    else if (dir === "backward") newScrollLeft = scrollLeft - width;
+
+    $(teamsRef.current).animate({ scrollLeft: newScrollLeft }, 1000, () => {
+      $(teamsRef.current).scrollLeft(newScrollLeft);
+    });
+  }
+  const teams = [
+    new team(
+      "Development",
+      "MPA's team of developers get applications that scale delivered to the people.",
+      homeClass.teamGradient1
+    ),
+    new team(
+      "Crypto",
+      "MPA crypto team are specialist in the latest blockchain solutions.",
+      homeClass.teamGradient2
+    ),
+    new team(
+      "Business",
+      "MPA Business team improves business functions, prioritizing revenue, strategic partnerships, and corporate social responsibility.",
+      homeClass.teamGradient3
+    ),
+    new team(
+      "Operations",
+      "MPA Operations teams deals with the day-day nontechnical tasks.",
+      homeClass.teamGradient4
+    ),
+  ];
   return (
     <div className={`${homeClass.team} ${homeClass[mode + "Mode"]}`}>
       <h1>Teams</h1>
       <div className={homeClass.teamArticle}>
-        <div className={homeClass.teamArticleButtonWrap}></div>
-        <div className={homeClass.teamArticleTeams}>
-          {" "}
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi
-          minus repellendus saepe totam ratione iste dolor iure dicta impedit
-          nostrum quam a dolorum, sapiente voluptate vel porro libero alias.
-          Quaerat. Quos error earum enim ab sequi maiores dolorem nesciunt
-          recusandae? Amet et, voluptate, odit similique eum magnam, quisquam
-          facere necessitatibus id illo delectus. Cum totam quaerat, dolorum in
-          nulla tempore. Amet, ut ab. Sequi praesentium, molestiae amet
-          provident magnam debitis repudiandae voluptatem harum eos voluptatum
-          officia labore consequuntur quis, ad nulla rem recusandae soluta
-          repellat, illo enim? Excepturi, nulla inventore.
+        <div
+          className={homeClass.teamArticleButtonWrap}
+          onClick={() => {
+            onClick("backward");
+          }}
+        >
+          <div className={homeClass.teamArticleIconWrap}>
+            <i className="fa fa-arrow-left" aria-hidden="true"></i>
+          </div>
         </div>
-        <div className={homeClass.teamArticleButtonWrap}></div>
+        <div className={homeClass.teamArticleTeams} ref={teamsRef}>
+          {teams.map((currTeam, index) => {
+            return (
+              <div
+                className={`${homeClass.teamDimension} ${currTeam.gradientClass}`}
+                key={index}
+              >
+                <h1 className={homeClass.teamHeader}>{currTeam.teamName}</h1>
+                <p className={homeClass.teamDes}>{currTeam.description}</p>
+                <div className={homeClass.teamIconWrap}>
+                  <img
+                    src="https://minorityprogrammers.com/assets/images/mpicon.svg"
+                    alt="title"
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={homeClass.teamArticleButtonWrap}
+          onClick={() => {
+            onClick("forward");
+          }}
+        >
+          <div className={homeClass.teamArticleIconWrap}>
+            <i className="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+        </div>
       </div>
     </div>
   );

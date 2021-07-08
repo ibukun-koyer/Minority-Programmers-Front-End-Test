@@ -3,7 +3,7 @@ function WrapHomeSection({ children, color, height }) {
     <div
       style={{
         backgroundColor: color,
-        height,
+
         width: "100%",
       }}
     >

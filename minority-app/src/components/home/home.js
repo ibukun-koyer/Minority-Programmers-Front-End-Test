@@ -1,4 +1,10 @@
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import {
+  Fragment,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import homeClasses from "./home.module.css";
 import $ from "jquery";
 //import home pages
@@ -23,8 +29,8 @@ class pagesOnHome {
 function Home() {
   //selected mode
   const [mode, setMode] = useState("");
-  //current page
-  const [currentSection, setCurrentSection] = useState(0);
+  // //current page
+  // const [currentSection, setCurrentSection] = useState(0);
   //references to all pages
   const landingRef = useRef();
   const aboutUsRef = useRef();
@@ -88,26 +94,27 @@ function Home() {
     };
   }, [resize]);
 
-  const testColor = ["red", "black", "green", "teal", "gold"];
   return (
-    <div className={homeClasses.fullScreen} style={{ height }}>
-      {pagesInfo.map((section, index) => {
-        return (
-          <WrapHomeSection
-            color={testColor[index]}
-            height={height}
-            key={section.id}
-            className={homeClasses.panel}
-          >
-            <section.component
-              homeClass={homeClasses}
-              mode={mode}
-              setMode={setMode}
-            />
-          </WrapHomeSection>
-        );
-      })}
-    </div>
+    <Fragment>
+      <div className={homeClasses.fullScreen}>
+        {pagesInfo.map((section, index) => {
+          return (
+            <WrapHomeSection
+              height={height}
+              key={section.id}
+              className={homeClasses.panel}
+            >
+              <section.component
+                homeClass={homeClasses}
+                height={!index ? height : ""}
+                mode={mode}
+                setMode={setMode}
+              />
+            </WrapHomeSection>
+          );
+        })}
+      </div>
+    </Fragment>
   );
 }
 export default Home;
