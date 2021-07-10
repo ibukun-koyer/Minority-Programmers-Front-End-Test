@@ -1,0 +1,93 @@
+.body {
+  height: fit-content;
+  display: flex;
+}
+.carousel {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.carouselGrid {
+  display: grid;
+  overflow: auto;
+  position: relative;
+}
+.carouselGrid::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.sectionName {
+  font-size: 2.6rem;
+  line-height: 3.4rem;
+  margin: 0;
+}
+.sectionDes {
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  font-weight: 500;
+}
+.overflow {
+  display: grid;
+  overflow-x: hidden;
+  height: fit-content;
+}
+.wrapBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+.btn {
+  padding: 1rem 5.2rem !important;
+  cursor: pointer;
+  font-style: bold;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+:root {
+  --arrowContainer: 3.5rem;
+}
+.arrow {
+  width: 1rem;
+  height: 1rem;
+}
+.containArrow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left {
+  left: calc(var(--arrowContainer) * -1);
+  z-index: 5;
+}
+.left .arrow {
+  transform: scaleX(-1);
+}
+.right {
+  right: calc(var(--arrowContainer) * -1);
+}
+.wrapArrow {
+  width: var(--arrowContainer);
+  height: var(--arrowContainer);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  transition: 0.2s;
+}
+.wrapArrow:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+@media (max-width: 600px) {
+  :root {
+    --arrowContainer: 3rem;
+  }
+}

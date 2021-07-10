@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import $ from "jquery";
+import carouselMove from "../../mainHelper/carouselMove/carouselMove";
 class team {
   constructor(teamName, description, gradientClass) {
     this.teamName = teamName;
@@ -11,17 +12,17 @@ function Team({ homeClass, mode }) {
   const teamsRef = useRef();
 
   function onClick(dir) {
-    const scrollLeft = $(teamsRef.current).scrollLeft();
+    // const scrollLeft = $(teamsRef.current).scrollLeft();
     const width = $(teamsRef.current).width();
-
-    let newScrollLeft;
-    if (dir === "forward") newScrollLeft = scrollLeft + width;
-    else if (dir === "backward") newScrollLeft = scrollLeft - width;
-
-    $(teamsRef.current).animate({ scrollLeft: newScrollLeft }, 1000, () => {
-      $(teamsRef.current).scrollLeft(newScrollLeft);
-    });
+    // let newScrollLeft;
+    // if (dir === "forward") newScrollLeft = scrollLeft + width;
+    // else if (dir === "backward") newScrollLeft = scrollLeft - width;
+    // $(teamsRef.current).animate({ scrollLeft: newScrollLeft }, 1000, () => {
+    //   $(teamsRef.current).scrollLeft(newScrollLeft);
+    // });
+    carouselMove(dir, width, teamsRef);
   }
+
   const teams = [
     new team(
       "Development",

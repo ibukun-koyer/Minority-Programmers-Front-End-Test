@@ -1,0 +1,24 @@
+:root {
+  --padding: 8.5rem;
+}
+.body {
+  height: fit-content;
+  background: linear-gradient(
+    104.61deg,
+    #ff00b8 2.65%,
+    #ff655b 51.83%,
+    #ffc700 100%
+  );
+  padding: var(--padding);
+  padding-top: calc(var(--padding) / 2);
+  padding-bottom: calc(var(--padding) / 2);
+  isolation: isolate;
+  z-index: -1;
+}
+@media (max-width: 600px) {
+  .body {
+    padding: calc(var(--padding) / 1.5);
+    padding-top: calc(var(--padding) / 3);
+    padding-bottom: calc(var(--padding) / 3);
+  }
+}

@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import $ from "jquery";
 import { Link } from "react-router-dom";
+import { pages } from "../../mainHelper/pageNames";
 
-const pages = ["home", "incubator", "learn"];
 function Landing({ homeClass, mode, setMode, height }) {
   const [shouldFixNav, setShouldFixNav] = useState(false);
   const [minimizeNav, setMinimizeNav] = useState(false);

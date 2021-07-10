@@ -1,5 +1,7 @@
 import Home from "./components/home/home";
 import { Switch, Route } from "react-router-dom";
+import IncubatorHome from "./components/incubator/incubatorHome";
+
 function App() {
   return (
     <Switch>
@@ -7,7 +9,7 @@ function App() {
         <Home />
       </Route>
       <Route path="/incubator" exact>
-        <div>Incubator</div>
+        <IncubatorHome />
       </Route>
       <Route path="/learn" exact>
         <div>Learn</div>
