@@ -1,0 +1,339 @@
+:root {
+  --min-height: calc(100vh - var(--navHeight));
+  --loadSize: 2rem;
+  --gap-inbetwen: 1.1rem;
+}
+.body {
+  width: 100%;
+  position: relative;
+}
+.bottomGap {
+  margin-bottom: var(--gap-inbetwen);
+}
+.containBody {
+  width: 100%;
+  display: flex;
+}
+
+/* body divs */
+/* shared */
+:root {
+  --body-div-border: 1px solid #cccccc;
+  --pad-body: 2.7rem;
+  --profilePicSize: 3rem;
+  --controlIconSize: 0.7rem;
+  --socialIconPad: 0.6rem;
+}
+.firstDiv,
+.secondDiv {
+  color: black;
+}
+.span {
+  width: 100%;
+  background-color: white;
+}
+.padBody {
+  padding: var(--pad-body);
+  padding-bottom: calc(var(--pad-body) / 2);
+  padding-top: calc(var(--pad-body) / 2);
+}
+.padOnlyBottom {
+  padding-bottom: calc(var(--pad-body) / 2);
+}
+/* div1 */
+.firstDiv {
+  width: calc((100% / 3) - (var(--gap-inbetwen) / 2));
+  margin-right: var(--gap-inbetwen);
+}
+.founded {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+  font-weight: 500;
+}
+.borderBottom {
+  border-bottom: var(--body-div-border);
+}
+.smallestText {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+.largestText {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.7rem;
+}
+.teammate {
+  width: 100%;
+
+  display: flex;
+  margin-bottom: 1rem;
+}
+.sizeOfSocialIcon {
+  width: 1.3rem;
+  height: 1rem;
+  object-fit: contain;
+
+  margin-right: var(--socialIconPad);
+}
+.sizeOfSocialIcon:nth-of-type(1) {
+  margin-left: var(--socialIconPad);
+}
+.sizeOfSocialIcon:nth-last-of-type(1) {
+  margin-right: 0;
+}
+.teammate:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.containTeammateImage {
+  width: var(--profilePicSize);
+  height: var(--profilePicSize);
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+.containTeammateInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.teammateName {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+}
+.role {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+.tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 0.35rem 0.7rem;
+
+  border: 2px solid #cccccc;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+}
+.spaceOut {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.linkToSocial {
+  color: #003cd8;
+}
+/* div2 */
+.secondDiv {
+  width: calc((200% / 3) - (var(--gap-inbetwen) / 2));
+  height: min-content;
+}
+.paragraph {
+  margin: 0;
+  text-align: justify;
+  font-weight: 500;
+}
+/* div 3 */
+.topGap {
+  margin-top: var(--gap-inbetwen);
+}
+.carouselRelated {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  overflow: auto;
+}
+.carouselRelated::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.relative {
+  position: relative;
+}
+.startupControl {
+  position: absolute;
+  right: 0;
+  filter: invert(0.6);
+  top: calc((100% - var(--controlIconSize) * 2) / 2);
+}
+.left {
+  transform: scaleX(-1);
+}
+.left,
+.right {
+  width: var(--controlIconSize);
+  height: var(--controlIconSize);
+}
+.startupControl {
+  cursor: pointer;
+  width: 3rem;
+  display: flex;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+/* end of body divs */
+.report {
+  /* width: 30%; */
+  width: fit-content;
+  max-width: 80%;
+  padding: 1.5rem;
+  background-color: white;
+  color: black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+.minHeight {
+  min-height: var(--min-height);
+  box-sizing: border-box;
+}
+.wrapError {
+  width: 100%;
+  box-sizing: border-box;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapError h1 {
+  border-bottom: 1px solid black;
+
+  padding-bottom: 1rem;
+}
+.wrapError p {
+  font-size: 1.2rem;
+}
+.load {
+  width: var(--loadSize);
+  height: var(--loadSize);
+  border-radius: 50%;
+  border: 5px solid white;
+  border-left: 5px solid transparent;
+  animation: rotate 1s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* topBar page */
+:root {
+  --gapIt: 1.7rem;
+}
+.topBar {
+  width: 100%;
+  height: 7.165rem;
+  background-color: white;
+  border-radius: 1.3rem 1.3rem 0 0;
+  padding: 1.8rem 2.7rem;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: var(--arrowContainer) 1fr 1fr 1fr 1fr;
+  gap: var(--gapIt);
+}
+.topBar > div {
+  align-self: center;
+}
+.gradientColor {
+  background: linear-gradient(
+    104.61deg,
+    #ff00b8 2.65%,
+    #ff655b 51.83%,
+    #ffc700 100%
+  );
+}
+/* title and image section */
+.titleImageContainer {
+  display: flex;
+}
+.title {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+/* fund raised data */
+.fundRaisedContainer {
+  display: flex;
+  flex-direction: column;
+}
+.fundRaisedContainerWidth {
+  width: min-content;
+}
+.fundRaisedTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+.fundRaisedCompletionText {
+  font-weight: 500;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+.fundRaisedRatio {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+}
+@media (max-width: 1165px) {
+  .containBody {
+    flex-direction: column;
+  }
+  .firstDiv {
+    width: 100%;
+  }
+  .secondDiv {
+    margin-top: var(--gap-inbetwen);
+    width: 100%;
+  }
+  .topBar {
+    grid-template-columns: var(--arrowContainer) 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "arrow title fundRaisedTitle"
+      ". fundRaisedVis btn";
+    height: fit-content;
+  }
+  .fundRaisedBar {
+    grid-area: fundRaisedVis;
+  }
+  .gradientColor {
+    grid-area: btn;
+  }
+}
+@media (max-width: 930px) {
+  .topBar {
+    grid-template-columns: var(--arrowContainer) 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "arrow title "
+      ". fundRaisedTitle"
+      ". fundRaisedVis "
+      ". btn";
+    height: fit-content;
+  }
+  .fundRaisedContainer {
+    grid-area: fundRaisedTitle;
+  }
+  .fundRaisedBar {
+    grid-area: fundRaisedVis;
+  }
+  .gradientColor {
+    grid-area: btn;
+  }
+}
+@media (max-width: 695px) {
+  .minHeight {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

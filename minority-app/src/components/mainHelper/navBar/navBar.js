@@ -68,7 +68,7 @@ function NavBar() {
         <ul>
           {pages.map((page, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link to={`/${index === 0 ? "" : page}`}>{page}</Link>
               </li>
             );

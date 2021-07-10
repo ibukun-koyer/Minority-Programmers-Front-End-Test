@@ -12,14 +12,8 @@ function Team({ homeClass, mode }) {
   const teamsRef = useRef();
 
   function onClick(dir) {
-    // const scrollLeft = $(teamsRef.current).scrollLeft();
     const width = $(teamsRef.current).width();
-    // let newScrollLeft;
-    // if (dir === "forward") newScrollLeft = scrollLeft + width;
-    // else if (dir === "backward") newScrollLeft = scrollLeft - width;
-    // $(teamsRef.current).animate({ scrollLeft: newScrollLeft }, 1000, () => {
-    //   $(teamsRef.current).scrollLeft(newScrollLeft);
-    // });
+
     carouselMove(dir, width, teamsRef);
   }
 

@@ -11,6 +11,7 @@ import Card from "../card/card";
 import { btnText } from "../yourOptions/yourOptions.module.css";
 import $ from "jquery";
 import carouselMove from "../../../mainHelper/carouselMove/carouselMove";
+import Arrow from "../../../mainHelper/arrow/arrow";
 
 function Startup({
   id,
@@ -154,8 +155,8 @@ function Startup({
               >
                 {mapAllStartups}{" "}
               </div>
-              <div
-                className={`${classes.containArrow} ${classes.left}`}
+
+              <Arrow
                 style={{
                   left:
                     currentSize === 100
@@ -169,17 +170,10 @@ function Startup({
                 onClick={() => {
                   click("backward");
                 }}
-              >
-                <span className={classes.wrapArrow}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/Arrow right.png"}
-                    alt="arrow"
-                    className={classes.arrow}
-                  />
-                </span>
-              </div>
-              <div
-                className={`${classes.containArrow} ${classes.right}`}
+                dir="left"
+              />
+
+              <Arrow
                 style={{
                   right: `calc((${root.gap + root.gapUnit} + ${$("body").css(
                     "--arrowContainer"
@@ -188,15 +182,8 @@ function Startup({
                 onClick={() => {
                   click("forward");
                 }}
-              >
-                <span className={classes.wrapArrow}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/Arrow right.png"}
-                    alt="arrow"
-                    className={classes.arrow}
-                  />
-                </span>
-              </div>
+                dir="right"
+              />
             </div>
           </Fragment>
         ) : (
