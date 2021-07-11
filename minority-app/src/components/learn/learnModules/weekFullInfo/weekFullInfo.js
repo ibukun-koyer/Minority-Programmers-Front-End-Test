@@ -1,32 +1,20 @@
-import { useEffect, useRef } from "react";
-import GradientBorder from "../../../mainHelper/gradientBorder/gradientBorder";
-import GradientBkg from "../../helperFiles/gradientBkg";
-import ProgressBar from "../../helperFiles/progressBar/progressBar";
+import ProgressVis from "../../helperFiles/ProgressVis/progressVis";
 import classes2 from "../../learnLanding/learnLanding.module.css";
+import TemplateCard from "../../learnPageTemplates/TemplateCard";
+import TemplateContainer from "../../learnPageTemplates/TemplateContainer";
+import TemplateSectionOne from "../../learnPageTemplates/TemplateSectionOne";
+import TemplateSectionTwo from "../../learnPageTemplates/TemplateSectionTwo";
 import classes from "./weekFullInfo.module.css";
-import $ from "jquery";
 
-function WeekFullInfo({
-  course,
-  hideWeekActivities,
-  setClickedNav,
-  clickedNav,
-}) {
-  // bodyRef.current ? $(bodyRef.current)?.width : ""
+function WeekFullInfo({ course, hideWeekActivities, setClickedNav }) {
   const { currentUser, courseCompletion, modules } = course;
 
   return (
-    <div className={classes.body}>
-      {hideWeekActivities ? (
-        <div className={`${classes.wrapNav} ${classes.nav}`}>
-          <i
-            className={`fa fa-bars `}
-            aria-hidden="true"
-            onClick={() => setClickedNav((prev) => !prev)}
-          ></i>
-        </div>
-      ) : null}
-      <GradientBkg className={classes.myGradient}>
+    <TemplateContainer
+      hideWeekActivities={hideWeekActivities}
+      setClickedNav={setClickedNav}
+    >
+      <TemplateSectionOne>
         <div className={classes.avatarContainer}>
           <img
             src={currentUser.avatar}
@@ -46,8 +34,8 @@ function WeekFullInfo({
             <button className={classes.btn}>Resume</button>
           </div>
         </div>
-      </GradientBkg>
-      <div className={classes.wrapBody}>
+      </TemplateSectionOne>
+      <TemplateSectionTwo>
         <div className={classes.weekFullData}>
           <div className={classes.topMenu}>
             <ul>
@@ -58,36 +46,20 @@ function WeekFullInfo({
           </div>
         </div>
         {modules.week.map((module, index) => {
-          //   this.title = "Fundamentals of Cryptocurrency";
-          //   this.amountCompleted = randomProgress();
-          //   this.introductionCompleted = [true, true, false];
-          //   this.activities = new activities();
           return (
-            <GradientBorder
-              key={index}
-              className={classes.gradientBorder}
-              classForCard={classes.cardEdit}
-            >
+            <TemplateCard key={index} progress={module.amountCompleted}>
               <div className={classes.FullInfoCardHeader}>
                 Week {index + 1} - {module.title}
               </div>
-              <div className={classes2.fullBarCard} style={{ width: "50%" }}>
-                <div
-                  className={classes2.actualBarCard}
-                  style={{
-                    width: `${module.amountCompleted}%`,
-                  }}
-                ></div>
-              </div>
+              <ProgressVis progress={module.amountCompleted} />
               <div className={classes.amountCompleted}>
                 {module.amountCompleted}% Completed
               </div>
-              <ProgressBar progress={module.amountCompleted} />
-            </GradientBorder>
+            </TemplateCard>
           );
         })}
-      </div>
-    </div>
+      </TemplateSectionTwo>
+    </TemplateContainer>
   );
 }
 export default WeekFullInfo;
