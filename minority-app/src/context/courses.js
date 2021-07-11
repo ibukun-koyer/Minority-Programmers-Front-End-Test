@@ -73,7 +73,10 @@ function CoursesProvider({ children }) {
       this.courseID = uuidv4();
       this.modulesCompleted = 8.3;
       this.totalModules = 10;
-      this.currentUser = { username: "shot", avatar: "" };
+      this.currentUser = {
+        username: "shot",
+        avatar: process.env.PUBLIC_URL + "/avatar.png",
+      };
       this.courseCompletion = 75;
       this.promotion = "Earn $30";
       this.modules = new module();
@@ -109,10 +112,21 @@ function CoursesProvider({ children }) {
   function isEmpty() {
     return courses.length === 0;
   }
+  function getCourseById(id) {
+    for (let i of courses) {
+      for (let j of i.courses) {
+        if (j.courseID === id) {
+          return j;
+        }
+      }
+    }
+    return {};
+  }
   const values = {
     initializeCourseData,
     getCourses,
     isEmpty,
+    getCourseById,
   };
   return <Ctx.Provider value={values}>{children}</Ctx.Provider>;
 }

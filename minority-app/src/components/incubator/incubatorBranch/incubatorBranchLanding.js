@@ -7,6 +7,7 @@ import { body } from "../incubator.module.css";
 import TopBar from "./topBar/topBar";
 import LeftBar from "./bodyBars/leftBar/leftBar";
 import RightBar from "./bodyBars/rightBar/rightBar";
+import ErrorHandler from "../../mainHelper/errorHandler/errorHandler";
 
 function IncubatorBranchLanding() {
   const dataStorage = useDataContext();
@@ -20,21 +21,11 @@ function IncubatorBranchLanding() {
     <div className={`${classes.body}`}>
       <NavBar />
       <div className={` ${body} ${classes.minHeight}`}>
-        {pageData === undefined ? (
-          <div className={classes.wrapError}>
-            <div className={classes.load}></div>
-          </div>
-        ) : Object.keys(pageData).length === 0 ? (
-          <div className={classes.wrapError}>
-            <div className={classes.report}>
-              <h1>Oops, Startup unavailable</h1>
-              <p>
-                This could be happening because the data being fetched does not
-                exist or was recently deleted.
-              </p>
-            </div>
-          </div>
-        ) : (
+        <ErrorHandler
+          pageData={pageData}
+          errorMessage="Oops, Startup unavailable"
+          reason="This happened because the browser was refreshed leading to a new randomly generated data being generated."
+        >
           <Fragment>
             <div className={classes.bottomGap}>
               <TopBar pageData={pageData} />
@@ -45,11 +36,10 @@ function IncubatorBranchLanding() {
               </div>
               <div className={classes.secondDiv}>
                 <RightBar pageData={pageData} />
-
               </div>
             </div>
           </Fragment>
-        )}
+        </ErrorHandler>
       </div>
     </div>
   );

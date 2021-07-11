@@ -1,0 +1,19 @@
+.start,
+.inProgress,
+.complete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.complete {
+  background: rgba(0, 170, 79, 1);
+  color: white;
+}
+.inProgress {
+  background: rgba(255, 101, 91, 1);
+  color: white;
+}
+.start {
+  background: white;
+  color: rgba(103, 101, 101, 1);
+}

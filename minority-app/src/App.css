@@ -1,0 +1,15 @@
+:root {
+  --size-of-learn-week-activities-tab: 30%;
+}
+.body-of-branched-learn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--size-of-learn-week-activities-tab) 1fr;
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 1090px) {
+  .body-of-branched-learn {
+    grid-template-columns: 1fr;
+  }
+}

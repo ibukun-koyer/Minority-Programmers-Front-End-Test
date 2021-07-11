@@ -1,0 +1,94 @@
+:root {
+  --WeeklyActivitiesPadding: 4.4rem;
+  --backIconFontSize: 3rem;
+}
+.body {
+  width: 100%;
+  height: fit-content;
+  height: calc(100vh - var(--navHeight));
+  background-color: var(--bkgColor);
+  padding: var(--WeeklyActivitiesPadding);
+  box-sizing: border-box;
+  color: white;
+  overflow: auto;
+}
+.navBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--bkgColor);
+  z-index: 50;
+  width: 30rem;
+}
+@media (max-width: 600px) {
+  .navBar {
+    width: 100%;
+  }
+}
+.coursesHeader {
+  width: 100%;
+  position: relative;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0;
+}
+.backIcon {
+  position: absolute;
+  left: calc(
+    (((var(--WeeklyActivitiesPadding) - var(--backIconFontSize)) / 2) * -1) -
+      (var(--WeeklyActivitiesPadding) / 2)
+  );
+  top: calc((100% - var(--backIconFontSize)) / 2);
+  transform: scaleX(-1);
+  font-size: var(--backIconFontSize);
+  transition: 0.2s;
+  cursor: pointer;
+}
+.backIcon:hover {
+  transform: scaleX(-1) scale(1.2);
+  transition: 0.2s;
+}
+.nameOfCurrentCourse {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 2.3rem;
+}
+.weekName {
+  margin-top: 5.8rem;
+  font-size: 2rem;
+  margin-bottom: 1.7rem;
+}
+.checkmark {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  height: 2.6rem;
+  flex-shrink: 0;
+}
+.introductionTxt {
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+.wrapIntroductionSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+.wrapIntroductionSection:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.checked {
+  color: white;
+  -webkit-text-stroke: 1px #00aa4f;
+  background-color: #00aa4f;
+}
+.unchecked {
+  background-color: white;
+  color: #676565;
+  -webkit-text-stroke: 1px #676565;
+}

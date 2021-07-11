@@ -28,15 +28,7 @@ body a {
   font-family: inherit;
   text-decoration: none;
 }
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(170, 170, 170);
-}
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0);
-}
+
 /* landing page css */
 .landing {
   width: 100%;

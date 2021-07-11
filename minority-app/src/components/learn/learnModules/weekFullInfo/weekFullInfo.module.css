@@ -1,0 +1,182 @@
+:root {
+  --avatarContainerWidth: 40%;
+  --smallerGradientHieght: 31rem;
+  --wrapBodyPadding: 2.9rem 5.4rem;
+}
+.body {
+  width: 100%;
+
+  height: calc(var(--navHeight) + var(--smallerGradientHieght));
+  height: calc(100vh - var(--navHeight));
+
+  overflow: auto;
+  background-color: var(--bkgColor);
+  position: relative;
+}
+
+.myGradient {
+  height: var(--smallerGradientHieght);
+  display: flex;
+  overflow: hidden;
+}
+.avatarContainer {
+  width: var(--avatarContainerWidth);
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+.textContainer {
+  width: calc(100% - var(--avatarContainerWidth));
+  height: 100%;
+}
+.avatar {
+  width: 17.5rem;
+  height: 17.5rem;
+  object-fit: contain;
+  max-width: 80%;
+  max-height: 80%;
+}
+.textContainer {
+  font-weight: 700;
+  font-size: calc(2rem + 2.1vw);
+  color: white;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.welcomeText {
+  max-width: 80%;
+}
+.conpletionData {
+  max-width: 80%;
+  font-weight: 500;
+  font-size: calc(1rem + 1vw);
+  margin-top: 2.7vw;
+}
+.btn {
+  margin-top: 4.2vw;
+  color: white;
+  background-color: var(--bkgColor);
+  cursor: pointer;
+
+  font-family: inherit;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 1.3rem;
+  width: calc(8rem + 8vw);
+  height: calc(2rem + 1.9vw);
+  transition: 0.2s ease-in;
+}
+.btn:hover {
+  background-color: white;
+  color: var(--bkgColor);
+  transition: 0.2s ease-out;
+}
+.weekFullData {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  background-color: var(--bkgColor);
+}
+.topMenu > ul {
+  list-style: none;
+  display: flex;
+
+  font-size: calc(1rem + 2vw);
+  color: white;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.topMenu > ul > li {
+  border-bottom: 10px solid transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.selected {
+  border-bottom: 10px solid rgba(255, 199, 0, 1) !important;
+}
+
+.topMenu > ul > li:hover {
+  border-bottom: 10px solid rgba(255, 199, 0, 1) !important;
+  transition: 0.3s;
+}
+.wrapBody {
+  padding: var(--wrapBodyPadding);
+}
+.gradientBorder {
+  margin-top: 3.28rem;
+  margin-bottom: 3.28rem;
+}
+.FullInfoCardHeader {
+  padding: 1.2rem;
+  font-weight: 500;
+  font-size: 2.35rem;
+  color: white;
+}
+
+.cardEdit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.amountCompleted {
+  color: white;
+  margin-top: 0.5rem;
+}
+.wrapBtn {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 580px) {
+  :root {
+    --wrapBodyPadding: 1.45rem 2.7rem;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --avatarContainerWidth: 0%;
+  }
+  .textContainer {
+    display: flex;
+    align-items: center;
+  }
+  .wrapBtn {
+    justify-content: center;
+  }
+  .welcomeText {
+    text-align: center;
+  }
+}
+.nav {
+  position: sticky;
+  top: 1rem;
+  left: 1rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  z-index: 20000;
+}
+.nav:hover {
+  color: rgb(230, 230, 230);
+  transition: 0.2s ease-out;
+}
+.wrapNav {
+  width: 100%;
+
+  background-color: var(--bkgColor);
+  top: 0;
+  left: 0;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
