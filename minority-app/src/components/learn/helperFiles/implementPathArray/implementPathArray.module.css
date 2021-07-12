@@ -1,0 +1,26 @@
+:root {
+  --arrayIconSize: 2rem;
+}
+.arrowContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  color: white;
+  top: calc(var(--gradientCardMargin) * -1);
+  left: 0;
+  padding: calc((var(--gradientCardMargin) + var(--arrayIconSize)) / 2);
+  z-index: -1;
+  box-sizing: border-box;
+  padding-top: 1rem;
+}
+.arrowContainer i {
+  font-size: 2rem;
+  -webkit-text-stroke: 4px var(--bkgColor);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+.arrowContainer i:hover {
+  transition: 0.2s ease-out;
+  color: rgb(230, 230, 230);
+}

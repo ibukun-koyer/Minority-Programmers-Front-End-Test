@@ -1,5 +1,5 @@
 import ProgressVis from "../../helperFiles/ProgressVis/progressVis";
-import classes2 from "../../learnLanding/learnLanding.module.css";
+import TextLink from "../../helperFiles/TextLink/TextLink";
 import TemplateCard from "../../learnPageTemplates/TemplateCard";
 import TemplateContainer from "../../learnPageTemplates/TemplateContainer";
 import TemplateSectionOne from "../../learnPageTemplates/TemplateSectionOne";
@@ -48,9 +48,13 @@ function WeekFullInfo({ course, hideWeekActivities, setClickedNav }) {
         {modules.week.map((module, index) => {
           return (
             <TemplateCard key={index} progress={module.amountCompleted}>
-              <div className={classes.FullInfoCardHeader}>
-                Week {index + 1} - {module.title}
-              </div>
+              <TextLink
+                tag="Week"
+                parentLink={window.location.pathname}
+                index={index}
+              >
+                {module.title}
+              </TextLink>
               <ProgressVis progress={module.amountCompleted} />
               <div className={classes.amountCompleted}>
                 {module.amountCompleted}% Completed

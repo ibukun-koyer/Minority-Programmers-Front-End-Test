@@ -4,8 +4,10 @@ const Ctx = createContext();
 
 function CoursesProvider({ children }) {
   const maxWeek = 15;
-  function randomProgress() {
-    return Math.floor(Math.random() * 101);
+  function randomProgress(max, min = 0) {
+    let difference = max + 1 - min;
+    let random = Math.floor(Math.random() * difference);
+    return random + min;
   }
   const header =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempus curabitur id consectetur fringilla. Sed eget hendrerit convallis erat. Sit diam, tincidunt ultricies et mauris morbi. Morbi dolor semper proin eu aenean nunc egestas quam id. Feugiat elit sed erat purus faucibus risus. Elementum velit lorem ullamcorper ultricies velit, massa eu eget. Eget id libero tempus faucibus arcu ullamcorper purus tellus. Vulputate urna cras consectetur cras tellus imperdiet massa lacus at. Facilisis mollis eleifend aenean eget consectetur nisl arcu. Aenean fringilla velit malesuada et non pharetra tristique. Arcu consequat vitae nulla lacus, mattis. Ante diam in dapibus arcu, mauris arcu. Non ultricies nec volutpat dictum. Viverra gravida in egestas congue at vestibulum quis in. Nibh suspendisse mauris volutpat est ultrices mi. Lectus cursus euismod id dictum et eget pharetra in. Purus ullamcorper laoreet mauris pretium lacus ridiculus. Pulvinar vitae elit dignissim vel. Et commodo amet mi, sed vitae enim etiam rutrum bibendum.";
@@ -13,27 +15,27 @@ function CoursesProvider({ children }) {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempus curabitur id consectetur fringilla. Sed eget hendrerit convallis erat. Sit diam, tincidunt ultricies et mauris morbi. Morbi dolor semper proin eu aenean nunc egestas quam id. Feugiat elit sed erat purus faucibus risus. Elementum velit lorem ullamcorper ultricies velit, massa eu eget. Eget id libero tempus faucibus arcu ullamcorper purus tellus. Vulputate urna cras consectetur cras tellus imperdiet massa lacus at. Facilisis mollis eleifend aenean eget consectetur nisl arcu. Aenean fringilla velit malesuada et non pharetra tristique. Arcu consequat vitae nulla lacus, mattis. Ante diam in dapibus arcu, mauris arcu. Non ultricies nec volutpat dictum. Viverra gravida in egestas congue at vestibulum quis in. Nibh suspendisse mauris volutpat est ultrices mi. Lectus cursus euismod id dictum et eget pharetra in. Purus ullamcorper laoreet mauris pretium lacus ridiculus. Pulvinar vitae elit dignissim vel. Et commodo amet mi, sed vitae enim etiam rutrum bibendum.";
   const randomVideos = [
     {
-      videoLink: "https://www.youtube.com/watch?v=I-k-iTUMQAY",
-      videoTitle: "basics of CODING in 10 minutes",
+      videoLink: process.env.PUBLIC_URL + "/edited-covid-video.mp4",
+      videoTitle: "Creating a covid vis project",
       header,
       header2,
     },
     {
-      videoLink: "https://www.youtube.com/watch?v=N775KsWQVkw",
-      videoTitle: "HOW TO PROGRAM - Getting Started!",
+      videoLink: process.env.PUBLIC_URL + "/Edited-project-notebook.mp4",
+      videoTitle: "Creating a notebook app",
       header,
       header2,
     },
     {
-      videoLink: "https://www.youtube.com/watch?v=RRubcjpTkks",
-      videoTitle: "Learn Java in 14 Minutes (seriously)",
+      videoLink: process.env.PUBLIC_URL + "/whatsapp.mp4",
+      videoTitle: "Creating a whatsapp clone",
       header,
       header2,
     },
   ];
   class activity {
     constructor() {
-      this.progress = randomProgress();
+      this.status = randomProgress(100);
       this.document =
         randomVideos[Math.floor(Math.random() * randomVideos.length)];
     }
@@ -51,7 +53,14 @@ function CoursesProvider({ children }) {
   class week {
     constructor() {
       this.title = "Fundamentals of Cryptocurrency";
-      this.amountCompleted = randomProgress();
+
+      this.totalActivities = randomProgress(100);
+      this.activitiesCompleted = randomProgress(this.totalActivities);
+      let percent = parseInt(
+        (this.activitiesCompleted / this.totalActivities) * 100
+      );
+      this.amountCompleted = isNaN(percent) ? 0 : percent;
+
       this.introductionCompleted = [true, true, false];
       this.activities = new activities();
     }

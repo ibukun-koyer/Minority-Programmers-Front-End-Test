@@ -3,7 +3,7 @@ import { Route, Switch, useParams } from "react-router";
 import ErrorHandler from "../../../mainHelper/errorHandler/errorHandler";
 import WeekActivities from "../../learnModules/weekActivities/weekActivities";
 import WeekFullInfo from "../../learnModules/weekFullInfo/weekFullInfo";
-import classes from "./routeToNestedLearn.module.css";
+import SpecificWeek from "../../learnModules/specificWeek/specificWeek";
 import $ from "jquery";
 function RouteToNestedLearn({ coursesStorage }) {
   const { id } = useParams();
@@ -49,8 +49,13 @@ function RouteToNestedLearn({ coursesStorage }) {
               clickedNav={clickedNav}
             />
           </Route>
-          <Route path="/learn/:id/module" exact>
-            <span>:id/module page</span>
+          <Route path="/learn/:id/week:weekid" exact>
+            <SpecificWeek
+              course={course}
+              hideWeekActivities={hideWeekActivities}
+              setClickedNav={setClickedNav}
+              clickedNav={clickedNav}
+            ></SpecificWeek>
           </Route>
         </Switch>
       </div>

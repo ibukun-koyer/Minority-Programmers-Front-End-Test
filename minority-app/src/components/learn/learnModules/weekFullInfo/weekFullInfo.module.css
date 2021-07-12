@@ -2,6 +2,7 @@
   --avatarContainerWidth: 40%;
   --smallerGradientHieght: 31rem;
   --wrapBodyPadding: 2.9rem 5.4rem;
+  --gradientCardMargin: 3.28rem;
 }
 .body {
   width: 100%;
@@ -105,15 +106,15 @@
 }
 
 .topMenu > ul > li:hover {
-  border-bottom: 10px solid rgba(255, 199, 0, 1) !important;
+  border-bottom: 2px solid rgba(255, 199, 0, 1) !important;
   transition: 0.3s;
 }
 .wrapBody {
   padding: var(--wrapBodyPadding);
 }
 .gradientBorder {
-  margin-top: 3.28rem;
-  margin-bottom: 3.28rem;
+  margin-top: var(--gradientCardMargin);
+  margin-bottom: var(--gradientCardMargin);
 }
 .FullInfoCardHeader {
   padding: 1.2rem;
@@ -179,4 +180,7 @@
   left: 0;
   padding: 0.5rem 1rem;
   box-sizing: border-box;
+}
+.FullInfoCardHeader:hover {
+  text-decoration: underline;
 }

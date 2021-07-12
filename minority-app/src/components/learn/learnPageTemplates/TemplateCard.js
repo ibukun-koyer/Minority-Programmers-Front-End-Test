@@ -2,7 +2,7 @@ import GradientBorder from "../../mainHelper/gradientBorder/gradientBorder";
 import ProgressBar from "../helperFiles/progressBar/progressBar";
 import classes from "../learnModules/weekFullInfo/weekFullInfo.module.css";
 
-function TemplateCard({ className, style, children, progress }) {
+function TemplateCard({ className="", style, children, progress }) {
   return (
     <GradientBorder
       className={classes.gradientBorder}

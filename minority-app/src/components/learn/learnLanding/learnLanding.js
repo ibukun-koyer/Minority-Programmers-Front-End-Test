@@ -1,5 +1,5 @@
 import classes from "./learnLanding.module.css";
-import GradientBkg from "../helperFiles/gradientBkg";
+import GradientBkg from "../helperFiles/gradientBkg/gradientBkg";
 import { Fragment } from "react";
 import { useCoursesContext } from "../../../context/courses";
 import LearnLandingComponent from "./learnLandingComponent/learnLandingComponent";
