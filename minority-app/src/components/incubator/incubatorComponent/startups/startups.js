@@ -1,9 +1,9 @@
 import {
   Fragment,
   useMemo,
-  useState,
+
   useRef,
-  useEffect,
+
   useCallback,
 } from "react";
 import classes from "./startups.module.css";
@@ -26,7 +26,7 @@ function Startup({
   currentSize,
   breakpoints,
 }) {
-  const [animation, setAnimation] = useState([false, "forward"]);
+
   const objectRef = useRef();
 
   const sharedGap = `${root.gap / (100 / currentSize)}${root.gapUnit}`;
@@ -98,30 +98,7 @@ function Startup({
     },
     [currentSize]
   );
-  useEffect(() => {
-    if (!displayType) {
-      let interval = setInterval(() => {
-        let direction;
-        if (
-          $(objectRef.current).scrollLeft() + $(objectRef.current).width() >=
-            $(objectRef.current).get(0).scrollWidth ||
-          (animation[1] === "backward" && $(objectRef.current).scrollLeft() > 0)
-        ) {
-          direction = "backward";
-          click(direction);
-        } else {
-          direction = "forward";
-          click(direction);
-        }
-        setAnimation((prev) => {
-          return [!prev[0], direction];
-        });
-      }, 3000);
-      return () => {
-        clearInterval(interval);
-      };
-    }
-  }, [animation, click, displayType]);
+
   return (
     <Fragment>
       <div

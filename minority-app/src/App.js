@@ -2,13 +2,13 @@ import Home from "./components/home/home";
 import { Switch, Route } from "react-router-dom";
 import IncubatorHome from "./components/incubator/incubatorHome";
 import { useDataContext } from "./context/data";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import IncubatorBranchLanding from "./components/incubator/incubatorBranch/incubatorBranchLanding";
 import NavBar from "./components/mainHelper/navBar/navBar";
 import LearnLanding from "./components/learn/learnLanding/learnLanding";
 import { useCoursesContext } from "./context/courses";
 import "./App.css";
-import WeekActivities from "./components/learn/learnModules/weekActivities/weekActivities";
+
 import RouteToNestedLearn from "./components/learn/helperFiles/errorCheckingAndRouting/routeToNestedLearn";
 
 function App() {

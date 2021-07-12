@@ -4,13 +4,15 @@ import ErrorHandler from "../../../mainHelper/errorHandler/errorHandler";
 import WeekActivities from "../../learnModules/weekActivities/weekActivities";
 import WeekFullInfo from "../../learnModules/weekFullInfo/weekFullInfo";
 import SpecificWeek from "../../learnModules/specificWeek/specificWeek";
+
 import $ from "jquery";
+import SpecificActivity from "../../learnModules/specificActivty/specificActivity";
 function RouteToNestedLearn({ coursesStorage }) {
   const { id } = useParams();
   const [course, setCourse] = useState(undefined);
   useEffect(() => {
     setCourse(coursesStorage.getCourseById(id));
-  }, []);
+  }, [coursesStorage, id]);
   const [hideWeekActivities, setHideWeekActivities] = useState(false);
 
   const [clickedNav, setClickedNav] = useState(false);
@@ -56,6 +58,15 @@ function RouteToNestedLearn({ coursesStorage }) {
               setClickedNav={setClickedNav}
               clickedNav={clickedNav}
             ></SpecificWeek>
+          </Route>
+          <Route path="/learn/:id/week:weekid/activity:activityid" exact>
+            <SpecificActivity
+              course={course}
+              hideWeekActivities={hideWeekActivities}
+              setClickedNav={setClickedNav}
+              clickedNav={clickedNav}
+              coursesStorage={coursesStorage}
+            ></SpecificActivity>
           </Route>
         </Switch>
       </div>

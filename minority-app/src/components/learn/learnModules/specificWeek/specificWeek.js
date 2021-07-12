@@ -42,7 +42,7 @@ function SpecificWeek({ course, hideWeekActivities, setClickedNav }) {
           max={course.modules.week.length}
         />
         {thisWeekData.activities.activity.map((activity, index) => {
-          console.log(activity.document.videoLink);
+      
           return (
             <TemplateCard
               key={uuidv4()}

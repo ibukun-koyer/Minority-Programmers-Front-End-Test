@@ -1,5 +1,5 @@
 import classes from "./incubatorBranchLanding.module.css";
-import { useHistory, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import NavBar from "../../mainHelper/navBar/navBar";
 import { useDataContext } from "../../../context/data";
 import { useEffect, useState, Fragment } from "react";

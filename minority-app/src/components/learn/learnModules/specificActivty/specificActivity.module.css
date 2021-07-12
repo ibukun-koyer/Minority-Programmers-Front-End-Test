@@ -1,0 +1,183 @@
+:root {
+  --playIconWidth: 3.75rem;
+  --playIconHeight: 4.3rem;
+  --playIconPadTopBottom: 1.7rem;
+  --playIconPadLeftRight: 4.3rem;
+  --controlBackgrounColor: rgba(21, 19, 113, 0.5);
+}
+.card {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 4rem;
+  color: white;
+}
+.timer {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: white;
+  margin-top: 2.35rem;
+}
+.noteHeader {
+  margin-top: 3.7rem;
+  margin-bottom: 0.7rem;
+}
+.noteParagraph {
+  margin: 0;
+}
+.noteParagraph:nth-last-of-type(1) {
+  margin-bottom: 3.7rem;
+}
+.timer > i {
+  transform: scaleX(-1);
+}
+/* video */
+.video {
+  width: 100%;
+  object-fit: contain;
+}
+.controls {
+  position: relative;
+  width: 100%;
+}
+.playBtn {
+  position: absolute;
+  top: calc(
+    (100% - ((var(--playIconPadTopBottom) * 2) + var(--playIconHeight))) / 2
+  );
+  left: calc(
+    (100% - ((var(--playIconPadLeftRight)) + var(--playIconWidth))) / 2
+  );
+  background: var(--controlBackgrounColor);
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.playBtn img {
+  width: var(--playIconWidth);
+  height: var(--playIconHeight);
+  padding: var(--playIconPadTopBottom) var(--playIconPadLeftRight);
+}
+.controlBar {
+  width: 100%;
+  background-color: var(--controlBackgrounColor);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+.controlBar i {
+  font-size: calc(var(--playIconWidth) / 2);
+  padding: 0;
+  cursor: pointer;
+  color: white;
+}
+.controlBar img {
+  width: calc(var(--playIconWidth) / 2);
+  height: calc(var(--playIconWidth) / 2);
+  padding: 0;
+  cursor: pointer;
+  color: white;
+}
+.hideControls {
+  opacity: 0;
+
+  transition: 0.5s;
+}
+.showControls {
+  transition: 0.5s;
+  opacity: 1;
+}
+.currentTime {
+  width: 4ch;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.mediaBar {
+  width: 70%;
+  height: 0.1rem;
+  color: white;
+  background-color: white;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+.mediaBar > div {
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+
+  background-color: white;
+  border-radius: 50%;
+}
+.completionCard {
+  position: absolute;
+  top: 0;
+  background-color: var(--bkgColor);
+  left: calc((100% - 35rem) / 2);
+  width: 30rem;
+  max-width: 80%;
+  padding: 1.8rem;
+  box-sizing: border-box;
+  box-shadow: 0px 5px 40px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0.85rem;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.completionCardH1 {
+  font-weight: 500;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 1.7rem;
+}
+.completionImage {
+  width: 12.8rem;
+  height: 12.8rem;
+  margin-bottom: 1.8rem;
+}
+.amountCompleted {
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 2.4rem;
+}
+.activityCompleted {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  max-width: 18.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.completionBtn {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 3rem;
+  background: linear-gradient(90deg, #ff00b8 0%, #ff655b 50%, #ffc700 100%);
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 1.7rem 2.5rem;
+  cursor: pointer;
+}
+.completionCancel {
+  color: white;
+  margin-top: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}

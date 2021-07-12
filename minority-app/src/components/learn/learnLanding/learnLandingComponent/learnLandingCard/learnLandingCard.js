@@ -1,7 +1,6 @@
 import { useHistory } from "react-router";
 import GradientBorder from "../../../../mainHelper/gradientBorder/gradientBorder";
 
-const width = "36%";
 
 function LearnLandingCard({ classes, course }) {
   const history = useHistory();

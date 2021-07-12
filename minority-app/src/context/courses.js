@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 const Ctx = createContext();
 
 function CoursesProvider({ children }) {
+  const currentSegmentNumber = useRef([]);
   const maxWeek = 15;
   function randomProgress(max, min = 0) {
     let difference = max + 1 - min;
@@ -19,20 +20,26 @@ function CoursesProvider({ children }) {
         process.env.PUBLIC_URL +
         "/GitHub - Create Local Repository and push to github Push an existing repository to github.mp4",
       videoTitle: "Creating git repositories",
-      header,
-      header2,
+      notes: [
+        { title: "Header", note: header },
+        { title: "Header", note: header2 },
+      ],
     },
     {
       videoLink: process.env.PUBLIC_URL + "/How to Create Twitter Account.mp4",
       videoTitle: "Creating a twitter account",
-      header,
-      header2,
+      notes: [
+        { title: "Header", note: header },
+        { title: "Header", note: header2 },
+      ],
     },
     {
       videoLink: process.env.PUBLIC_URL + "/whatsapp.mp4",
       videoTitle: "Creating a whatsapp clone",
-      header,
-      header2,
+      notes: [
+        { title: "Header", note: header },
+        { title: "Header", note: header2 },
+      ],
     },
   ];
   class activity {
@@ -124,15 +131,22 @@ function CoursesProvider({ children }) {
     return courses.length === 0;
   }
   function getCourseById(id) {
+    let index = 0;
+    let index_2 = 0;
     for (let i of courses) {
       for (let j of i.courses) {
         if (j.courseID === id) {
+          currentSegmentNumber.current = [index, index_2];
           return j;
         }
+        index_2++;
       }
+      index++;
+      index_2 = 0;
     }
     return {};
   }
+
   const values = {
     initializeCourseData,
     getCourses,

@@ -1,5 +1,5 @@
-import { Fragment, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { Fragment } from "react";
+import { useHistory } from "react-router";
 import classes from "./weekActivities.module.css";
 
 function WeekActivities({ course, navBar }) {
